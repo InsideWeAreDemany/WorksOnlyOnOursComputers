@@ -1,0 +1,14 @@
+import speech_recognition as sr  # import the library
+r = sr.Recognizer() # initialize recognizer
+path = "/home/wazon/PycharmProjects/WorksOnlyOnOursComputers/VoiceSamples/ComeOnSimple.wav"
+with sr.AudioFile(path) as source:  # mention source it will be either Microphone or audio files.
+
+    # print("Speak Anything :")
+    audio = r.record(source)  # listen to the source
+    try:
+        # text = r.recognize_sphinx(audio)
+        text = r.recognize_google(audio)  # use recognizer to convert our audio into text part.
+        print("You said : {}".format(text))
+    except :
+        print("Шось ти дуже кучеряво чешеш")  # In case of voice not recognized clearly
+# print("Хулі палиш. соска?")
